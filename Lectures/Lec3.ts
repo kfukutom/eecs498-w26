@@ -46,3 +46,45 @@ function main() {
 // Only one special object for undefined. 
 // * Treat everything as an implicint pointer, e.g., a string variable will always be referring to a string.
 // * How about a composite type? ==> string | undefined
+
+
+// Structural Typing
+interface Circle {
+    radius: number;
+}
+
+interface ColoredCircle {
+    radius: number;
+    color: string;
+};
+
+//interface Shape {
+//    name: string;
+//}
+
+interface ColoredShape extends Shape {
+    // name is inherited from Shape.
+    radius: number;
+}
+
+// if Circle is x and ColoredCircle is y, x=y is permitted whereas y=x is not via structural typing.
+// ... is a destructuring operator
+let circle: Circle;
+let colcircle : ColoredCircle;
+// ERROR: colcircle = circle;
+
+interface Circle {
+    type: "Circle";
+    radius: number;
+}
+
+interface Square {
+    type: "Square";
+    side_length: number;
+}
+
+type Shape = Circle | Square;
+let shape! : Shape;
+if (shape.type === "Circle") {
+
+}

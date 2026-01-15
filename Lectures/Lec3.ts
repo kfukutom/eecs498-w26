@@ -86,5 +86,10 @@ interface Square {
 type Shape = Circle | Square;
 let shape! : Shape;
 if (shape.type === "Circle") {
-
+    shape.radius;
+} else if (shape.type === "Square") {
+    shape.side_length;
+} else {
+    // never
+    console.log(shape); // never case - TS will automatically infer.
 }
